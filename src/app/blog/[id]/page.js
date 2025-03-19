@@ -1,6 +1,5 @@
-// app/blog/[id]/page.js
-
 import axios from 'axios';
+import Head from 'next/head';
 
 const BlogPost = async ({ params }) => {
     const { id } = params;
@@ -14,10 +13,18 @@ const BlogPost = async ({ params }) => {
         }
 
         return (
-            <div>
-                <h1>{post.title}</h1>
-                <p>{post.content}</p>
-            </div>
+            <>
+                <Head>
+                    <title>{post.title} - My Blog</title>
+                    <meta name="description" content={post.content || "A brief description of the post."} />
+                    <meta name="keywords" content="blog, post, articles, {post.title}" />
+                    <link rel="canonical" href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`} />
+                </Head>
+                <div>
+                    <h1>{post.title}</h1>
+                    <p>{post.content}</p>
+                </div>
+            </>
         );
     } catch (error) {
         console.error("Error fetching post:", error);
