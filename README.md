@@ -1,10 +1,8 @@
 # client-node-with-admin
-```
-[Git Link](https://github.com/uyendo0203/client-node-with-admin) 
-```
-```
-[Vercel Link](https://vercel.com/uyendo0203s-projects/client-node-with-admin) 
-```
+Git Link: [https://github.com/uyendo0203/client-node-with-admin](https://github.com/uyendo0203/client-node-with-admin) 
+
+
+Vercel Link: [https://vercel.com/uyendo0203s-projects/client-node-with-admin](https://vercel.com/uyendo0203s-projects/client-node-with-admin) 
 
 
 ## Getting Started
