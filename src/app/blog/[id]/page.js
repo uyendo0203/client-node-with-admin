@@ -1,8 +1,24 @@
 import axios from 'axios';
 import Head from 'next/head';
 
+// or Dynamic metadata
+export async function generateMetadata({ params }) {
+  console.log({params});
+
+  const { id } = params;
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs/${id}`);
+  const post = await res.data;
+  
+  return {
+    title: post.title,
+    description: post.content || 'The React Framework for the Web',
+  }
+}
+
+
 const BlogPost = async ({ params }) => {
     const { id } = params;
+    
 
     try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs/${id}`);
@@ -13,18 +29,10 @@ const BlogPost = async ({ params }) => {
         }
 
         return (
-            <>
-                <Head>
-                    <title>{post.title} - My Blog</title>
-                    <meta name="description" content={post.content || "A brief description of the post."} />
-                    <meta name="keywords" content="blog, post, articles, {post.title}" />
-                    <link rel="canonical" href={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`} />
-                </Head>
-                <div>
-                    <h1>{post.title}</h1>
-                    <p>{post.content}</p>
-                </div>
-            </>
+          <div>
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
+          </div>
         );
     } catch (error) {
         console.error("Error fetching post:", error);
