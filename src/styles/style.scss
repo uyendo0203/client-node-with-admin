@@ -4,7 +4,9 @@ body {
 }
 
 // Các styles khác
-
+.container{
+    @apply mx-auto
+}
 .icon-home{
     @apply fixed right-[10px] top-[10px] z-[2];
 }

@@ -5,9 +5,10 @@ import Link from 'next/link';
 const Home = () => {
 
     return (
-      <Link legacyBehavior href='/blogs'>
-        <h2 className="text-xl cursor-pointer underline font-semibold">Blog</h2>
-      </Link>
+      <div className='container mt-10'>
+         <h2>Hello!</h2>
+      </div>
+    
     );
 };
 
