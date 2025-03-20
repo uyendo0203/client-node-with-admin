@@ -1,15 +1,13 @@
 "use client"
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 const Home = () => {
 
     return (
-      <Link legacyBehavior href={`/blog`}>
+      <Link legacyBehavior href='/blogs'>
         <h2 className="text-xl cursor-pointer underline font-semibold">Blog</h2>
-    </Link>
+      </Link>
     );
 };
 
